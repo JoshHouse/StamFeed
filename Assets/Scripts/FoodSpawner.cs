@@ -11,6 +11,8 @@ public class FoodSpawner : MonoBehaviour
 
     // Furthest food can spawn on the x-axis
     public float xBound;
+    // Position of food from ground
+    public float yPos;
     // Furthest food can spawn on the z-axis
     public float zBound;
 
@@ -42,9 +44,9 @@ public class FoodSpawner : MonoBehaviour
     void SpawnFood()
     {
         // Choose random spawn position
-        Vector3 spawnPos = new Vector3(Random.Range(-xBound, xBound), 0f, Random.Range(-zBound, zBound));
+        Vector3 spawnPos = new Vector3(Random.Range(-xBound, xBound), yPos, Random.Range(-zBound, zBound));
 
         // Spawn random food at spawnPos
-        Instantiate(foodPrefabs[Random.Range(0, foodPrefabs.Length - 1)], spawnPos, Quaternion.identity);
+        Instantiate(foodPrefabs[Random.Range(0, foodPrefabs.Length)], spawnPos, Quaternion.identity);
     }
 }
