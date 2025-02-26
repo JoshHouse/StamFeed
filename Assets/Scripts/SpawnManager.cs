@@ -38,6 +38,7 @@ public class SpawnManager : MonoBehaviour
     // Spawns Random animal on top, bottom, left or right
     void SpawnRandomAnimal()
     {
+        spawnedAnimal = null;
         // Random values for spawning mechanics
         int poolIndex = Random.Range(0, animalPools.Length);    // Determines which pool to spawn from
         int spawnAxis = Random.Range(0, 4);                     // Determines which side of the screen to spawn on
@@ -49,7 +50,10 @@ public class SpawnManager : MonoBehaviour
             Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);  // Calculates Spawn Position
 
             spawnedAnimal = animalPools[poolIndex].Spawn(spawnPos);                             // Calls ObjectPool spawn function
-            spawnedAnimal.transform.rotation = Quaternion.Euler(0, 0, 0);                       // Sets newly spawned animal's rotation
+            if (spawnedAnimal != null)
+            {
+                spawnedAnimal.transform.rotation = Quaternion.Euler(0, 0, 0);                       // Sets newly spawned animal's rotation
+            }
         }
 
         // Charging East
@@ -58,7 +62,10 @@ public class SpawnManager : MonoBehaviour
             Vector3 spawnPos = new Vector3(-spawnPosX, 0, Random.Range(0, spawnRangeZ));        // Calculates Spawn Position
 
             spawnedAnimal = animalPools[poolIndex].Spawn(spawnPos);                             // Calls ObjectPool spawn function
-            spawnedAnimal.transform.rotation = Quaternion.Euler(0, 90, 0);                      // Sets newly spawned animal's rotation
+            if (spawnedAnimal != null)
+            {
+                spawnedAnimal.transform.rotation = Quaternion.Euler(0, 90, 0);                  // Sets newly spawned animal's rotation
+            }
         }
 
         // Charging South
@@ -68,7 +75,10 @@ public class SpawnManager : MonoBehaviour
             Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);  // Calculates Spawn Position
 
             spawnedAnimal = animalPools[poolIndex].Spawn(spawnPos);                             // Calls ObjectPool spawn function
-            spawnedAnimal.transform.rotation = Quaternion.Euler(0, 180, 0);                     // Sets newly spawned animal's rotation
+            if (spawnedAnimal != null)
+            {
+                spawnedAnimal.transform.rotation = Quaternion.Euler(0, 180, 0);                 // Sets newly spawned animal's rotation
+            }
         }
 
         // Charging West
@@ -77,7 +87,10 @@ public class SpawnManager : MonoBehaviour
             Vector3 spawnPos = new Vector3(spawnPosX, 0, Random.Range(0, spawnRangeZ));         // Calculates Spawn Position
 
             spawnedAnimal = animalPools[poolIndex].Spawn(spawnPos);                             // Calls ObjectPool spawn function
-            spawnedAnimal.transform.rotation = Quaternion.Euler(0, 270, 0);                     // Sets newly spawned animal's rotation
+            if (spawnedAnimal != null)
+            {
+                spawnedAnimal.transform.rotation = Quaternion.Euler(0, 270, 0);                 // Sets newly spawned animal's rotation
+            }
         }
     }
 }
