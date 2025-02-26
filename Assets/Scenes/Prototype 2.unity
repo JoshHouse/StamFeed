@@ -604,10 +604,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811f963a1c4304955ab876bf5afccd18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animalPrefabs:
+  animalPools:
   - {fileID: 1561384706}
   - {fileID: 1561384705}
   - {fileID: 1561384704}
+  spawnDelay: 2
+  spawnInterval: 0.5
 --- !u!4 &1561384703
 Transform:
   m_ObjectHideFlags: 0
