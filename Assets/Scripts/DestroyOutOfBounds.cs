@@ -23,7 +23,7 @@ public class DestroyOutOfBounds : MonoBehaviour
             transform.position.x < leftBoundX ||
             transform.position.x > rightBoundX)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

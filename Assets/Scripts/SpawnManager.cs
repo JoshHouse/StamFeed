@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject[] animalPrefabs;
+    public ObjectPool[] animalPrefabs;
+    private GameObject spawnedAnimal;
     // Spawning Vertically
     private float spawnRangeX = 20;
     private float spawnPosZ;
@@ -38,7 +39,8 @@ public class SpawnManager : MonoBehaviour
             spawnPosZ = -10;
             Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
 
-            Instantiate(animalPrefabs[animalIndex], spawnPos, Quaternion.Euler(0,0,0));
+            spawnedAnimal = animalPrefabs[animalIndex].Spawn(spawnPos);
+            spawnedAnimal.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
         // Charging East
@@ -46,7 +48,8 @@ public class SpawnManager : MonoBehaviour
         {
             Vector3 spawnPos = new Vector3(-spawnPosX, 0, Random.Range(0, spawnRangeZ));
 
-            Instantiate(animalPrefabs[animalIndex], spawnPos, Quaternion.Euler(0, 90, 0));
+            spawnedAnimal = animalPrefabs[animalIndex].Spawn(spawnPos);
+            spawnedAnimal.transform.rotation = Quaternion.Euler(0, 90, 0);
         }
 
         // Charging South
@@ -55,7 +58,8 @@ public class SpawnManager : MonoBehaviour
             spawnPosZ = 20;
             Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
 
-            Instantiate(animalPrefabs[animalIndex], spawnPos, Quaternion.Euler(0, 180, 0));
+            spawnedAnimal = animalPrefabs[animalIndex].Spawn(spawnPos);
+            spawnedAnimal.transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
         // Charging West
@@ -63,7 +67,8 @@ public class SpawnManager : MonoBehaviour
         {
             Vector3 spawnPos = new Vector3(spawnPosX, 0, Random.Range(0, spawnRangeZ));
 
-            Instantiate(animalPrefabs[animalIndex], spawnPos, Quaternion.Euler(0, 270, 0));
+            spawnedAnimal = animalPrefabs[animalIndex].Spawn(spawnPos);
+            spawnedAnimal.transform.rotation = Quaternion.Euler(0, 270, 0);
         }
     }
 }
