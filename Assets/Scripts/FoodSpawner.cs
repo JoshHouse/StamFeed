@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class FoodSpawner : MonoBehaviour
 {
-    // Time before each food spawn
-    public float foodDelayMax;
-    // Current time left before next food spawn
-    private float foodDelay;
+    // Seconds to elapse before next food spawns
+    public float foodDelay;
 
-    // Furthest food can spawn on the x-axis
+    // Furthest food can spawn on the x-axis (boundary is symmetrical)
     public float xBound;
     // Position of food from ground
     public float yPos;
-    // Furthest food can spawn on the z-axis
+    // Furthest food can spawn on the z-axis (boundary is symmetrical)
     public float zBound;
 
     // Array of food prefabs to spawn
@@ -40,33 +38,11 @@ public class FoodSpawner : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        // Set up foodDelay timer
-        foodDelay = foodDelayMax;
+        // Spawn food every foodDelay seconds
+        InvokeRepeating("SpawnFood", foodDelay, foodDelay);
 
         // Randomize order of foodPool for next spawning
         ShuffleFood();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // Countdown foodDelay
-        foodDelay -= Time.deltaTime;
-
-        // Spawn food when foodDelay seconds elapses, reset timer if successful
-        if (foodDelay <= 0.0f)
-        {
-            // If food was spawned, reset foodDelay timer
-            if (SpawnFood() != null)
-            {
-                foodDelay = foodDelayMax;
-            }
-            // If not,check next Update() by making foodDelay negative
-            else
-            {
-                foodDelay = -1.0f;
-            }
-        }
     }
 
     // Spawns a random food at random location (within the bounds)
