@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Carrot Pickup
       objectReference: {fileID: 0}
+    - target: {fileID: 181360, guid: bd519f706f8c5cf4dad9fed04ab5b64b, type: 3}
+      propertyPath: m_TagString
+      value: Food
+      objectReference: {fileID: 0}
     - target: {fileID: 403182, guid: bd519f706f8c5cf4dad9fed04ab5b64b, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
