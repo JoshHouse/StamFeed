@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private int zBottom = 0;                                    // Bound for bottom in game
 
     // The statuses the player can be in. 2 means the player has lost, 3 means the player won
-    public enum Status { ALIVE = 0, DYING = 1, DEAD = 2, WIN = 3,}      
+    public enum Status { ALIVE = 0, DYING = 1, DEAD = 2, WINNING = 3, WIN = 4,}      
     [HideInInspector] public int currStatus;                    // Player's current status
 
     SkinnedMeshRenderer mesh;                                   // References the SkinnedMeshRenderer attached to the character farmer
@@ -83,9 +84,16 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine("DeathRoutine");
                 break;
             case (int) Status.DEAD:                                    // Player is dead - Trigger the game over scene to load in
-                gameObject.SetActive(false);                           // Turn off the game object
+                SceneManager.LoadSceneAsync("You Lose");               // Loads the game over scene
+                break;
+            case (int) Status.WINNING:                                 // Player has met victory conditions - Play victory animations and set status to win
+                // Lock speed and turn off collider, same as DYING state
+                speed = 0;
+                box3D.enabled = false;
+                StartCoroutine("VictoryRoutine");
                 break;
             case (int) Status.WIN:                                     // PLayer has won - Trigger any necessary win commands/winning scene
+                SceneManager.LoadSceneAsync("You Win");                // Loads the game won scene
                 break;
         }
 
@@ -116,6 +124,27 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);                                      // Wait for half a second
 
         currStatus = (int) Status.DEAD;                                             // Set status to dead
+
+        yield return null;
+    }
+
+    public IEnumerator VictoryRoutine()
+    {
+
+        StartCoroutine("SpinningFarmer");
+        yield return new WaitForSeconds(3);
+
+        currStatus = (int) Status.WIN;
+
+        yield return null;
+    }
+
+    public IEnumerator SpinningFarmer()
+    {
+
+        if (currStatus == (int) Status.WINNING){
+            transform.Rotate(0, 800 * Time.deltaTime, 0);
+        }
 
         yield return null;
     }
