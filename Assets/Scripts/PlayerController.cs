@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private int zTop = 15;                                      // Bound for top in game
     private int zBottom = 0;                                    // Bound for bottom in game
 
-    // The statuses the player can be in. 2 means the player has lost, 3 means the player won
+    // The statuses the player can be in. 2 means the player has lost, 4 means the player won
     public enum Status { ALIVE = 0, DYING = 1, DEAD = 2, WINNING = 3, WIN = 4,}      
     [HideInInspector] public int currStatus;                    // Player's current status
 
@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        // Get a reference to the two components from Unity
         mesh = transform.GetChild(1).gameObject.GetComponent<SkinnedMeshRenderer>();
         box3D = GetComponent<BoxCollider>();
     }
@@ -84,7 +85,8 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine("DeathRoutine");
                 break;
             case (int) Status.DEAD:                                    // Player is dead - Trigger the game over scene to load in
-                SceneManager.LoadSceneAsync("You Lose");               // Loads the game over scene
+                gameObject.SetActive(false);
+                SceneManager.LoadScene("You Lose");                    // Loads the game over scene
                 break;
             case (int) Status.WINNING:                                 // Player has met victory conditions - Play victory animations and set status to win
                 // Lock speed and turn off collider, same as DYING state
@@ -93,7 +95,7 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine("VictoryRoutine");
                 break;
             case (int) Status.WIN:                                     // PLayer has won - Trigger any necessary win commands/winning scene
-                SceneManager.LoadSceneAsync("You Win");                // Loads the game won scene
+                SceneManager.LoadScene("You Win");                     // Loads the game won scene
                 break;
         }
 
@@ -143,7 +145,7 @@ public class PlayerController : MonoBehaviour
     {
 
         if (currStatus == (int) Status.WINNING){
-            transform.Rotate(0, 800 * Time.deltaTime, 0);
+            transform.Rotate(0, 1100 * Time.deltaTime, 0);
         }
 
         yield return null;
