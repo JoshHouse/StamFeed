@@ -9,12 +9,14 @@ public class FoodSpawner : MonoBehaviour
     // Current time left before next food spawn
     private float foodDelay;
 
-    // Furthest food can spawn on the x-axis
-    public float xBound;
+    // Boundaries on the X-Axis (make similar to Player bounds)
+    public float xHighBound;
+    public float xLowBound;
     // Position of food from ground
     public float yPos;
-    // Furthest food can spawn on the z-axis
-    public float zBound;
+    // Boundaries on the Z-Axis (make similar to Player bounds)
+    public float zHighBound;
+    public float zLowBound;
 
     // Array of food prefabs to spawn
     public GameObject[] foodPrefabs;
@@ -73,7 +75,7 @@ public class FoodSpawner : MonoBehaviour
     GameObject SpawnFood()
     {
         // Choose random spawn position
-        Vector3 spawnPos = new Vector3(Random.Range(-xBound, xBound), yPos, Random.Range(-zBound, zBound));
+        Vector3 spawnPos = new Vector3(Random.Range(xLowBound, xHighBound), yPos, Random.Range(zLowBound, zHighBound));
 
         // Find first inactive food in foodPool
         foreach (GameObject food in foodPool)

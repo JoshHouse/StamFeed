@@ -18,10 +18,6 @@ public class FoodPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            /*
-             * Insert food collection logic, possibly with GameManager
-            */
-
             gameObject.SetActive(false);
         }
     }

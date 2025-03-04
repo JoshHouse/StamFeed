@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.7668052, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.14509805, g: 0.32156864, b: 0.5176471, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.76862746, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.690566, g: 0.65390635, b: 0.22280525, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1005,7 +1005,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1365.3334, y: 682.6667}
+  m_SizeDelta: {x: 1365.3334, y: 750}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1634063167
 MonoBehaviour:
@@ -1092,7 +1092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.76862746, g: 1, b: 0, a: 1}
+  m_Color: {r: 0.14338909, g: 0.3178582, b: 0.5169811, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1117,7 +1117,7 @@ MonoBehaviour:
 
     WASD to move
 
-    Pick up 12 food to win'
+    Pick up 15 food to win'
 --- !u!222 &1634708364
 CanvasRenderer:
   m_ObjectHideFlags: 0
