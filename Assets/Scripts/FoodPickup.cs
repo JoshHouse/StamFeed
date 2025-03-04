@@ -22,7 +22,7 @@ public class FoodPickup : MonoBehaviour
              * Insert food collection logic, possibly with GameManager
             */
 
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
