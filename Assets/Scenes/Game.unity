@@ -624,6 +624,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6363055072069099638, guid: 5c021239ee2fc554aa1fc26d92a7f29b, type: 3}
+      propertyPath: speed
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -642,6 +646,7 @@ GameObject:
   - component: {fileID: 1561384706}
   - component: {fileID: 1561384705}
   - component: {fileID: 1561384704}
+  - component: {fileID: 1561384707}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -728,6 +733,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 400874001676643428, guid: aad4d48adbc414a2d94587917c8c7ea9, type: 3}
   poolSize: 10
+--- !u!114 &1561384707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561384701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d375227c7e6bcc44890a341d59256b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foodDelayMax: 15
+  xBound: 15
+  yPos: 0.25
+  zBound: 15
+  foodPrefabs:
+  - {fileID: 2631730296645410522, guid: fffdfc66a71f01e4a9fc4ae1649d6345, type: 3}
+  - {fileID: 7435747064043965446, guid: 0a710e21a7e667f4bace6af4b2b95504, type: 3}
+  - {fileID: 3567369135495450731, guid: cdafd12521305e745879063eb4565ca4, type: 3}
+  - {fileID: 8753989688890838467, guid: 7f9aea38fd3b7894c9a73533fad37b61, type: 3}
+  - {fileID: 1928024630184855152, guid: 43c2480bd19979c498649b1f0015447d, type: 3}
+  - {fileID: 3820255908378226349, guid: c9d4c88b864f3e74987887af171f61f1, type: 3}
 --- !u!1 &1590138454
 GameObject:
   m_ObjectHideFlags: 0
