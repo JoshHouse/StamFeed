@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
         if (foodCollectCount == foodCollectMax)
         {
-            SceneManager.LoadScene("You Win");
+            PlayerController.instance.currStatus = (int) PlayerController.Status.WINNING;
         }
 
         foodDisplay.text = foodCollectCount.ToString() + " / " + foodCollectMax.ToString();
