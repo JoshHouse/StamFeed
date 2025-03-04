@@ -707,6 +707,10 @@ PrefabInstance:
       propertyPath: speed
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 6363055072069099638, guid: 5c021239ee2fc554aa1fc26d92a7f29b, type: 3}
+      propertyPath: xRange
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
