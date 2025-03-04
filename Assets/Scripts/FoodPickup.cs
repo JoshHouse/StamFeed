@@ -6,6 +6,8 @@ public class FoodPickup : MonoBehaviour
 {
     // Speed food rotates in degrees per second
     public float rotationSpeed;
+    //GameManager reference
+    GameObject gameManager;
 
     // Update is called once per frame
     void Update()
@@ -18,11 +20,9 @@ public class FoodPickup : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            /*
-             * Insert food collection logic, possibly with GameManager
-            */
+            gameManager.GetComponent<GameManager>().WinConditionTracker();
 
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }
